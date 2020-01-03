@@ -41,4 +41,13 @@ let a = 1
 console.log(window.a)  // undefined
 ```
 
+**Function**定义的函数会覆盖**var**定义的变量，但是不会覆盖**let**定义的变量，会报错
+
+```
+let a = 1
+function a(){}  // Uncaught SyntaxError: Identifier 'a' has already been declared
+```
+
+es5中顶层变量的属性等价于全局变量，es5的var function 声明的全局变量，依旧是顶级对象的属性。到了es6中有所改变， 而es6声明的全局变量不属于顶级对象的属性了
+
 而这个区别或者说特性，网上的文章很少提到，请大家格外注意。
