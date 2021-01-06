@@ -13,3 +13,6 @@ SWR first returns the data from cache (stale), then sends the fetch request (rev
 
 ##这里面有一个坑
 我还没有想明白，就是useSWR中的回跳函数从redux中取值，取不到值，暂时还没有想明白为什么。
+
+##心得1
+如果在编辑页面使用了swr，切记在保存之后使用 `revalidate` 更新一下缓存中的数据，不然下一次进入页面的时候读取的是上一次的数据，会让人觉得很奇怪
