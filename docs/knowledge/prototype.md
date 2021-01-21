@@ -23,7 +23,7 @@ constructor属性的含义就是指向该对象的构造函数，所有函数（
 ```
 函数创建的对象.__proto__ === 该函数.prototype 最终指向 object.prototype
 函数.__proto__ === Function.prototype  
-函数.prototype. constructor=== 函数本身  
+函数.prototype.constructor=== 函数本身  
 Object.__proto__=== Function. prototype  
 
 Function.__proto__=== Function.prototype  
