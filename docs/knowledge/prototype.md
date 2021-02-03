@@ -30,3 +30,69 @@ Function.__proto__=== Function.prototype
 Function.prototype.__proto__=== Object.prototype  
 Function.constructor === Function  
 ```
+
+原型的prototype其实是function对象的一个属性
+这个prototype是定义构造函数构造出每个对象的公共祖先
+所有该构造函数构造出的对象都可以继承原型上的属性和方法
+
+```
+function Phone(color,brand){
+    this.color = color;
+    this.brand = brand;
+    // this.screen = "18:9" 一般不写这 为了显示下面的18:9
+}
+
+Phone.prototype.screen = 16:9;
+
+let p1 = new("red","小米")；
+console.log(p1.screen)  // 18:9  自己有的属性不会去原型上找
+```
+
+开发插件的时候，当需要传的值写到构造函数上面，方法和其它的属性都直接挂在prototype上
+
+不能通过修改实例化对象，更改prototype
+
+构造函数是可以更改的
+function Telephone(color,brand){ }
+
+Phone.prototype{
+    constructor:Telephone  // 这里就可以改变构造函数
+}
+
+```
+function Car(){
+    let this = {
+        __proto__:Car.prototype // 
+    }
+}
+Car.prototype.name = "Benz";
+let car = new Car();
+console.log(car)
+
+__proto__就是对象的一个属性，是可以被修改的
+car.__proto__  = {
+    name:"mazda"
+}
+```
+
+```
+Car.prototype.name = "Mazda";
+console.log(Car.prototype) 
+let car1= new Car();
+
+Car.prototype= {name : "Benz"}
+console.log(Car.prototype)
+let car2= new Car();
+
+console.log(car1.name) // Mazda
+console.log(car2.name) // Benz
+```
+
+```
+function Car(){
+    this.brand = "Benz"
+}
+Car.prototype = {
+    brand:"Mazda"
+}
+```
