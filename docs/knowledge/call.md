@@ -23,3 +23,37 @@ Array方法具有prototype对象,[]继承于Array,直接可以使用slice
 var args = Array.prototype.slice.call(arguments)  
 var args = [].slice.call(arguments)
 ```
+
+```
+function test(){
+    console.log("a")
+}
+test() -> 相当于test.call()
+```
+
+### call apply 更改this指向
+```
+function Car(brand,color){
+    this.brand = brand;
+    this.color = color;
+}
+let newCar = {};
+Car.call(newCar,"benz","red")
+Car.apply(newCar,["benz","red"]) //唯一区别就是参数是数组
+console.log(newCar)  // 参数被传入
+```
+
+```
+function Compute(){
+    this.plus = function(a,b){
+        console.log(a + b)
+    }
+}
+
+function FullCompute(){
+    Compute.apply(this) // 类似于继承
+    this.mul = function(a,b){
+        console.log(a + b)
+    }
+}
+```
