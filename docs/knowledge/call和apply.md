@@ -1,4 +1,4 @@
-# call
+# call和apply
 
 ## Array.prototype.slice.call()
 Array.prototype.slice.call(arguments)能将具有length属性的对象转成数组，除了IE下的节点集合（因为ie下的dom对象是以com对象的形式实现的，js对象与com对象不能进行转换）
@@ -57,3 +57,10 @@ function FullCompute(){
     }
 }
 ```
+
+## apply
+
+call与apply唯一的区别就是，call可以传很多参数，但是apply传的是一个数组
+
+### fn.apply(this,arguments)
+这种写法只是因为参数不固定，如果this没有在fn用到，传null也可以

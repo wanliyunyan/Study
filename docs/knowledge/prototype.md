@@ -1,8 +1,8 @@
-# __proto__、constructor 、prototype
+# prototype
+## __proto__、constructor 、prototype
 
 __proto__和constructor属性是对象所独有的  
-prototype属性是函数所独有的 
-但是由于JS中函数也是一种对象，所以函数也拥有__proto__和constructor属性。  
+prototype属性是函数所独有的，但是由于JS中函数也是一种对象，所以函数也拥有__proto__和constructor属性。  
 
 先来看下面这段代码：
 ```
@@ -104,50 +104,3 @@ car.intro(); //Benz
 Car.prototype.intro();  Mazda
 
 ```
-
-let obj = {}
-let obj = new Object();
-完全一样
-
-### Object.create(对象、null) 创建对象
-
-function Obj(){}
-Obj.prototype.num = 1;
-let obj = Object.create(Obj.prototype)
-let obj = new Obj();
-完全一样
-
-new 1调用构造函数初始化属性和方法
-    2 指定实例化对象的原型
-let test = {num:2};
-let obj = Object.create(test) 
-
-// 创建没有原型的空对象
-let obj1 = Object.create(null)
-obj1.num = 1
-// obj1作为obj2的原型
-let obj2 = Object.create(obj1)
-
-let obj3 = {count:2}
-obj1.__proto__ = obj3
-console.log(obj1.count) undefined
-// 因为 __proto__ 不能人为指定，但是可以修改
-
-undefined null 没有包装类，没有原型，所以没有对应的属性
-
-let num = 1
-let obj = {}
-let obj2 = Object.create(null)
-document.write(num)
-document.write(obj)
-document.write(obj2) // 报错 没有原型 没有toString
-
-obj2.toString = function(){
-    return ""
-}
-document.write(obj2.toString()) 
-
-Number.prototype.toString.call(1) // "1"  
-Object.prototype.toString.call(1) // "1"  
-
-这两个toString方法不一样
