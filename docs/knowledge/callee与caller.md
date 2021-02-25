@@ -33,7 +33,7 @@ let sum  = (function(n){
 })(10)
 
 caller 更没有用
-谁调用的当前函数，则返回谁调用的这个函数的函数
+谁调用的当前函数,则返回谁调用的这个函数的函数
 
 function test1(){
     test2()    

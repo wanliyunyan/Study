@@ -13,10 +13,10 @@ function D(){}
 
 var o = new C();
 
-// true，因为 Object.getPrototypeOf(o) === C.prototype
+// true,因为 Object.getPrototypeOf(o) === C.prototype
 o instanceof C; 
 
-// false，因为 D.prototype不在o的原型链上
+// false,因为 D.prototype不在o的原型链上
 o instanceof D; 
 
 o instanceof Object; // true,因为Object.prototype.isPrototypeOf(o)返回true
