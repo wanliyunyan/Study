@@ -32,3 +32,18 @@
 | Number | 字符串形式值 | String |
 | Object | "[object Object]" | String |
 | String | 字符串 | String |
+
+---
+
+## 例子
+
+```
+let aaa = {
+    i: 10,
+    valueOf: function() { return this.i+30; },
+    toString: function() { return this.valueOf()+10; }
+}
+alert(aaa > 20); // true 调用的 valueOf
+alert(+aaa); // 40 调用的 valueOf
+alert(aaa); // 50 调用的 toString
+```
