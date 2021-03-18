@@ -111,3 +111,29 @@ TLS（Transport Layer Security，传输层安全）：其前身是 SSL，它最�
 ## 总结HTTPS和HTTP的区别
 1. HTTPS是HTTP协议的安全版本，HTTP协议的数据传输是明文的，是不安全的，HTTPS使用了SSL/TLS协议进行了加密处理。
 2. http和https使用连接方式不同，默认端口也不一样，http是80，https是443。
+
+## 常见的Content-Type
+
+text/html  ：HTML格式  
+text/plain ：纯文本格式      
+text/xml   ：XML格式  
+
+image/gif  ：gif图片格式     
+image/jpeg ：jpg图片格式  
+image/png  ：png图片格式  
+
+application/xml     ： XML数据格式  
+application/json    ： JSON数据格式  
+application/pdf     ： pdf格式    
+application/msword  ： Word文档格式  
+application/octet-stream ： 二进制流数据（如文件下载）  
+
+application/x-www-form-urlencoded ： 表单默认的提交数据的格式  
+
+```
+<form encType="">中默认的encType，
+form表单数据被编码为key/value格式发送到服务器。
+服务器收到的raw body会是，name=aaa&key=bbb。
+```
+
+multipart/form-data ： 表单上传文件
