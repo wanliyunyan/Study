@@ -1,5 +1,7 @@
 # JSON
 
+JSON 对象不可以用方法，有方法就是普通对象
+
 ## stringify
 ```
 let a= {
