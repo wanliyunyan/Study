@@ -296,3 +296,15 @@ new Foo.getName();// 2 点的优先级高 new数字没有意义
 new Foo().getName(); // 先执行了 new Foo() 打印的原型的3
 new new Foo().getName(); // 先执行了 new Foo() 打印的原型的3
 ```
+
+```
+web 环境 window self frames this 都一样
+node global
+worker self
+通用 globalThis
+
+箭头函数 this -> 外层作用域的this指向(外层函数不能是箭头函数)
+
+基本原则：谁调用this的宿主，this就指向谁
+对象方法内部的this -> 最近的引用
+```
