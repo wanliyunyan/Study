@@ -102,7 +102,7 @@ script start
 async2 end
 Promise
 script end
-async1 end // ？？？
+async1 end
 promise1
 promise2
 undefined
