@@ -14,17 +14,24 @@ foo()是函数,它的constructor属性指向Function(),它的prototype属性指�
 
 f是foo实例化的对象,它的constructor属性指向foo(),__proto__属性指向foo.prototype。  
 
-__proto__属性的作用就是当访问一个对象的属性时,如果该对象内部不存在这个属性,那么就会去它的__proto__属性所指向的那个对象（父对象）里找,一直找,直到__proto__属性的终点null,然后返回undefined,通过__proto__属性将对象连接起来的这条链路即我们所谓的原型链。
-   
-prototype属性的作用就是让该函数所实例化的对象们都可以找到公用的属性和方法。
-    
+## prototype   
+prototype属性的作用就是让该函数所实例化的对象们都可以找到公用的属性和方法。  
+函数的prototype属性指向了一个对象，这个对象正是调用该构造函数而创建的实例的原型
+原型对象prototype有一个默认的constructor属性，用于记录实例是由哪个构造函数创建；
+
+## __proto__
+这是每一个JavaScript对象(除了 null )都具有的一个属性，叫__proto__，这个属性会指向该对象的原型。  
+__proto__属性的作用就是当访问一个对象的属性时,如果该对象内部不存在这个属性,
+那么就会去它的__proto__属性所指向的那个对象（父对象）里找,一直找,直到__proto__属性的终点null,然后返回undefined,通过__proto__属性将对象连接起来的这条链路即我们所谓的原型链。
+属性__proto__是一个对象，它有两个属性，constructor和__proto__；
+
+## constructor
 constructor属性的含义就是指向该对象的构造函数,所有函数（此时看成对象了）最终的构造函数都指向Function。
-   
 ```
 函数创建的对象.__proto__ === 该函数.prototype 最终指向 object.prototype
 函数.__proto__ === Function.prototype  
 函数.prototype.constructor=== 函数本身  
-Object.__proto__=== Function. prototype  
+Object.__proto__=== Function.prototype  
 
 Function.__proto__=== Function.prototype  
 Function.prototype.__proto__=== Object.prototype  
