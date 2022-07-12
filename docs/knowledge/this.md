@@ -308,3 +308,60 @@ worker self
 基本原则：谁调用this的宿主，this就指向谁
 对象方法内部的this -> 最近的引用
 ```
+
+## 什么时候不能使用箭头函数？
+1. 对象方法中，不适用箭头函数
+```js
+const obj = {
+    name: '张三',
+    getName() {
+        return this.name
+    },
+    getName1: () => {
+        return this.name
+    }
+}
+```
+2. 原型方法中，不适用箭头函数
+```js
+const obj = {
+    name: '张三',
+}
+obj.__proto__.getName = function() {
+    return this.name
+}
+obj.__proto__.getName1 = () => {
+    return this.name
+}
+```
+
+3. 构造函数也不行
+```js
+function Foo (name, sex) {
+    this.name = name
+    this.sex = sex
+}
+const Foo1 = (name, sex) => {
+    this.name = name
+    this.sex = sex
+}
+console.log('普通的构造函数：', new Foo('张三', '男'))
+console.log('箭头函数：', new Foo1('张三', '男'))
+```
+
+4. 动态上下文中的回调函数
+```js
+const btn1 = document.getElementById('btn1')
+btn1.addEventListener('click', () => {
+    this.innerHTML = 'clicked' // 箭头函数的 this 指向的是他的父作用域（这里就指向了 window），而不是指向这个button。这时候我们需要使用普通函数才可以。
+})
+```
+
+5. Vue 生命周期和 method 中也不能使用箭头函数
+   Vue 本质上是一个对象，我们说过对象方法中，不适用箭头函数。他的本质上的和对象方法中，不适用箭头函数是一样的。
+
+react 行
+因为 Vue组件本质上是一个 JS 对象；React 组件（非Hooks）他本质上是一个 ES6 的 class
+
+
+https://juejin.cn/post/7103702621369663518
