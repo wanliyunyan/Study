@@ -554,6 +554,31 @@ Promise.any([promise1(), promise2(), promise3()])
 
 ```
 
+
+## ES2022
+
+### .at() 
+索引值对应值的方法
+
+```js
+const array = [1,2,3,4,5,6]
+
+// ✅ When used with positive index it is equal to [index]
+array.at(0) // 1
+array[0] // 1
+
+// ✅ When used with negative index it mimicks the Python behaviour
+array.at(-1) // 6
+array.at(-2) // 5
+array.at(-4) // 3
+```
+
+
+
+
+
+
 https://juejin.cn/post/7046217976176967711
+https://juejin.cn/post/7119309621453389855
 
 
