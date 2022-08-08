@@ -264,38 +264,7 @@ b.say = a.say;
 b.say() // 333
 ```
 
-```
-function Foo(){
-    getName = function(){
-        console.log(1)
-    }
-    return this;
-}
 
-Foo.getName = funtion(){
-    console.log(2);
-}
-
-Foo.prototype.getName = funtion(){
-    console.log(3);
-}
-
-var getName = funtion(){
-    console.log(4);
-}
-
-funtion getName(){
-    console.log(5);
-}
-
-Foo.getName(); // 2 函数是特殊的对象 相当于静态方法 
-getName(); // 4
-Foo().getName(); // 1 全局 覆盖 了 5
-getName(); //  1 此时 已经被覆盖了 
-new Foo.getName();// 2 点的优先级高 new数字没有意义
-new Foo().getName(); // 先执行了 new Foo() 打印的原型的3
-new new Foo().getName(); // 先执行了 new Foo() 打印的原型的3
-```
 
 ```
 web 环境 window self frames this 都一样
