@@ -22,10 +22,15 @@ prototype属性的作用就是让该函数所实例化的对象们都可以找�
 原型对象prototype有一个默认的constructor属性，用于记录实例是由哪个构造函数创建；
 
 ## `__proto__`
-这是每一个JavaScript对象(除了 null )都具有的一个属性，叫`__proto__`，这个属性会指向该对象的原型。  
+这是每一个JavaScript对象(除了 null,undefined )都具有的一个属性，叫`__proto__`，这个属性会指向该对象的原型。  
 `__proto__`属性的作用就是当访问一个对象的属性时,如果该对象内部不存在这个属性,
 那么就会去它的`__proto__`属性所指向的那个对象（父对象）里找,一直找,直到`__proto__`属性的终点null,然后返回undefined,通过`__proto__`属性将对象连接起来的这条链路即我们所谓的原型链。
 属性`__proto__`是一个对象，它有两个属性，constructor和`__proto__`；
+
+```
+{}.__proto__  // Uncaught SyntaxError: Unexpected token '.'
+1.__proto__  // Uncaught SyntaxError: Invalid or unexpected token
+```
 
 使用`__proto__`是有争议的，也不鼓励使用它。因为它从来没有被包括在 EcmaScript 语言规范中，但是现代浏览器都实现了它。`__proto__` 属性已在 ECMAScript 6 语言规范中标准化，用于确保 Web 浏览器的兼容性，因此它未来将被支持。它已被不推荐使用，现在更推荐使用Object.getPrototypeOf/Reflect.getPrototypeOf 和Object.setPrototypeOf/Reflect.setPrototypeOf（尽管如此，设置对象的 [[Prototype]] 是一个缓慢的操作，如果性能是一个问题，应该避免）
 

@@ -24,5 +24,30 @@ if(typeof(a)!="undefined"){
 }
 ```
 
+```
+ let a
+  const b = null
+  const c = 100
+  const d = 'warbler'
+  const e = true
+  const f = Symbol('f')
+  const foo = () => {}
+  const arr = []
+  const obj = {}
+  console.log(typeof a) //=> undefined
+  console.log(typeof b) //=> object
+  console.log(typeof c) //=> number
+  console.log(typeof d) //=> string
+  console.log(typeof e) //=> boolean
+  console.log(typeof f) //=> symbol
+  console.log(typeof foo) //=> function
+  console.log(typeof arr) //=> object
+  console.log(typeof obj) //=> object
+  console.log(typeof Infinity) //=> number
+  console.log(typeof NaN) //=> number
+```
+
+https://juejin.cn/post/7029111905956397070
+
      
 
