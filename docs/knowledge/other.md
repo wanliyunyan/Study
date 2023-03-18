@@ -13,3 +13,9 @@
     </script> 
 ```
 --- 
+
+## 技巧
+```js
+// 解析参数:
+Object.fromEntries((new URLSearchParams(location.search)).entries())
+```

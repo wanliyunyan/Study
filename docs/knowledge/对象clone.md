@@ -53,3 +53,10 @@ function deepClone(origin,target){
     }
 }
 ```
+
+**千万不要用JSON.stringify()去实现深拷贝**
+
+- 当对象中有时间类型的元素时候 -----时间类型会被变成字符串类型数据
+- 当对象中有undefined类型或function类型的数据时 --- undefined和function会直接丢失
+- 当对象中有NaN、Infinity和-Infinity这三种值的时候 --- 会变成null
+- 当对象循环引用的时候 --会报错

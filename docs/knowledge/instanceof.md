@@ -34,5 +34,22 @@ var o3 = new D();
 o3 instanceof D; // true
 o3 instanceof C; // true
 ```
-     
-参考 https://www.cnblogs.com/Trr-984688199/p/6180040.html
+
+```
+ const foo = () => { }
+  const arr = []
+  const obj = {}
+  const data = new Date()
+  const number = new Number(3)
+  console.log(foo instanceof Function) //=> true
+  console.log(arr instanceof Array) //=> true
+  console.log(obj instanceof Object) //=> true
+  console.log(data instanceof Object) //=> true
+  console.log(number instanceof Object) //=> true
+  console.log(null instanceof Object) //=> false
+  console.log(undefined instanceof Object) //=> false
+
+```
+
+https://juejin.cn/post/7029111905956397070
+https://www.cnblogs.com/Trr-984688199/p/6180040.html
